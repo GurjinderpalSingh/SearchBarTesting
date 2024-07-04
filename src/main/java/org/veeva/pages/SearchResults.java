@@ -91,5 +91,9 @@ public class SearchResults {
         return false;
     }
 
-
+   public boolean isSearchResultsOfCategory(String category){
+        String url = driver.getCurrentUrl().toLowerCase();
+        System.out.println(url);
+        return url.contains(category.toLowerCase());
+   }
 }

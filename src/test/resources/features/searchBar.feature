@@ -37,3 +37,10 @@ Feature: Searchbar functionality on e-commerce site
     And user should see search results for "laptop"
     When user apply the brand filter "Dell"
     Then user should see search results filtered by brand "Dell"
+
+  Scenario: Search with categories
+    When User select the category "Electronics"
+    And user search for "laptop"
+    And user click search button
+    Then User should see search results for "laptop" in the "Electronics" category
+

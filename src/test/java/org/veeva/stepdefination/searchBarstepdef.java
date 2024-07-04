@@ -99,4 +99,16 @@ public class searchBarstepdef {
         searchresults.getSearchResults();
         Assert.assertTrue(searchresults.ResultsContainBrand(brand));
     }
+
+    @When("User select the category {string}")
+    public void userSelectTheCategory(String category) {
+        homepage.selectCategory(category);
+    }
+
+    @Then("User should see search results for {string} in the {string} category")
+    public void userShouldSeeSearchResultsForInTheCategory(String item, String category) {
+        searchresults.getSearchResults();
+        Assert.assertTrue(searchresults.resultsContainsSearchText(item));
+        Assert.assertTrue(searchresults.isSearchResultsOfCategory(category));
+    }
 }
