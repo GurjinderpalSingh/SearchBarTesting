@@ -3,8 +3,10 @@ package org.veeva.stepdefination;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.veeva.pages.Homepage;
@@ -24,6 +26,7 @@ public class searchBarstepdef {
     public void userIsOnAmazonHomepage() {
         driver.get("https://www.amazon.ca/");
         driver.manage().window().maximize();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("navbar")));
         homepage = new Homepage(driver);
         searchresults = new SearchResults(driver);
     }
