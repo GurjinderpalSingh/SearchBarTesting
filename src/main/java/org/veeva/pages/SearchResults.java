@@ -75,5 +75,21 @@ public class SearchResults {
 
     }
 
+    public void selectFilter(String brand){
+        By brandFilterCheckbox = By.xpath("//span[text()='" + brand + "']/preceding-sibling::div");
+        WebElement brandFilterElement = wait.until(ExpectedConditions.elementToBeClickable(brandFilterCheckbox));
+        brandFilterElement.click();
+    }
+
+    public boolean ResultsContainBrand(String brand) {
+        List<WebElement> searchResults = getSearchResults();
+        for (WebElement result : searchResults) {
+            if (result.getText().toLowerCase().contains(brand.toLowerCase())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }

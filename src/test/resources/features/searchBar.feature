@@ -30,3 +30,10 @@ Feature: Searchbar functionality on e-commerce site
     And  user click search button
     When User navigate to second page of results
     Then user should see second page of results
+
+  Scenario: Search with filter criteria
+    Given user search for "laptop"
+    And user click search button
+    And user should see search results for "laptop"
+    When user apply the brand filter "Dell"
+    Then user should see search results filtered by brand "Dell"

@@ -88,4 +88,15 @@ public class searchBarstepdef {
     public void userShouldSeeSecondPageOfResults() {
         Assert.assertTrue(searchresults.isPage2());
     }
+
+    @When("user apply the brand filter {string}")
+    public void ApplyTheBrandFilter(String string) {
+        searchresults.selectFilter(string);
+    }
+
+    @Then("user should see search results filtered by brand {string}")
+    public void userShouldSeeSearchResultsFilteredByBrand(String brand) {
+        searchresults.getSearchResults();
+        Assert.assertTrue(searchresults.ResultsContainBrand(brand));
+    }
 }
