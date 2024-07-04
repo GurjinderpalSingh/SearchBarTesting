@@ -17,7 +17,7 @@ public class SearchResults {
     // By Locators
     private By searchresults = By.xpath("//div[@class=\"s-main-slot s-result-list s-search-results sg-row\"]/div");
     private By noresultfound = By.xpath("//div[@data-cel-widget='MAIN-MESSAGING-1']//span[contains(text(),'No results for')]");
-
+    private By searchSuggestion = By.xpath("//div[@class=\"s-suggestion-container\"]/div[@role=\"button\"]");
     //Methods
 
     // method to return search results as list
@@ -41,5 +41,16 @@ public class SearchResults {
     public WebElement noResultFound(){
         return driver.findElement(noresultfound);
     }
+
+    public List<WebElement> getSearchSuggestions()
+    {
+        return driver.findElements(searchSuggestion);
+    }
+
+    public boolean checkSuggestionDisplayed(String string){
+        List <WebElement> suggestions = getSearchSuggestions();
+        return suggestions.get(0).getText().contains(string);
+     }
+
 
 }

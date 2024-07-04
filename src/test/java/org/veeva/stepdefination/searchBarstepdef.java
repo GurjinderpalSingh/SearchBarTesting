@@ -4,6 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.veeva.pages.Homepage;
 import org.veeva.pages.SearchResults;
@@ -36,7 +37,7 @@ public class searchBarstepdef {
     @Then("user should see search results for {string}")
     public void user_should_see_results_for(String string){
         searchresults.getSearchResults();
-        searchresults.resultsContainsSearchText(string);
+        Assert.assertTrue(searchresults.resultsContainsSearchText(string));
     }
 
     @Given("user does not put any term in search Bar")
@@ -63,5 +64,11 @@ public class searchBarstepdef {
     @When("user typing search item {string} in search bar")
     public void userTypingSearchItemInSearchBar(String string) {
         homepage.addSearchtext(string);
+    }
+
+    @Then("I should see search suggestions with {string}")
+    public void iShouldSeeSearchSuggestions(String string) {
+       Assert.assertTrue(searchresults.checkSuggestionDisplayed(string));
+
     }
 }

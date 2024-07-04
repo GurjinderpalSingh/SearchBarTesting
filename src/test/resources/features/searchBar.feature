@@ -21,8 +21,8 @@ Feature: Searchbar functionality on e-commerce site
     Then User should be showed no results found message
 
   Scenario: User is showed suggestion when typing item in search bar
-    When user typing search item "laptop" in search bar
-    Then I should see search suggestions
+    When user typing search item "lap" in search bar
+    Then I should see search suggestions with "lap"
 
 
   Scenario: search results pagination
