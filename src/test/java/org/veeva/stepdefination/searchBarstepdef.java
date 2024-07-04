@@ -23,6 +23,7 @@ public class searchBarstepdef {
     @Given("User is on Amazon homepage")
     public void userIsOnAmazonHomepage() {
         driver.get("https://www.amazon.ca/");
+        driver.manage().window().maximize();
         homepage = new Homepage(driver);
         searchresults = new SearchResults(driver);
     }

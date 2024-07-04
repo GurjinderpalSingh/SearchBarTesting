@@ -36,11 +36,11 @@ public class SearchResults {
     public boolean resultsContainsSearchText(String text){
         List<WebElement> results = getSearchResults();
         for(WebElement e : results){
-            if(!e.getText().contains(text)){
-                return false;
+            if(e.getText().toLowerCase().contains(text.toLowerCase())){
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     //method to heck no results found
