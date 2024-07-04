@@ -65,6 +65,3 @@ You can also use an Integrated Development Environment (IDE) such as IntelliJ ID
 ## Additional Information
 
 - Ensure that you have Java Development Kit (JDK) installed.
-- This project uses Selenium for browser automation and Cucumber for behavior-driven development (BDD).
-
-Feel free to contribute to this project by creating pull requests or raising issues.
