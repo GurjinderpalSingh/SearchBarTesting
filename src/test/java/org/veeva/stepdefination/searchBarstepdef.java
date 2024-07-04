@@ -4,22 +4,25 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.veeva.pages.Homepage;
 import org.veeva.pages.SearchResults;
 
 import javax.accessibility.AccessibleAttributeSequence;
+import java.time.Duration;
 
 
 public class searchBarstepdef {
     WebDriver driver = Hooks.driver;
     Homepage homepage;
     SearchResults searchresults;
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     @Given("User is on Amazon homepage")
     public void userIsOnAmazonHomepage() {
-        driver.get("https://www.amazon.ca");
+        driver.get("https://www.amazon.ca/");
         homepage = new Homepage(driver);
         searchresults = new SearchResults(driver);
     }
