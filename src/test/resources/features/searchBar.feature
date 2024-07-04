@@ -26,3 +26,7 @@ Feature: Searchbar functionality on e-commerce site
 
 
   Scenario: search results pagination
+    Given user search for "mobile"
+    And  user click search button
+    When User navigate to second page of results
+    Then user should see second page of results

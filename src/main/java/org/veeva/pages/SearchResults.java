@@ -24,6 +24,9 @@ public class SearchResults {
     private By searchresults = By.xpath("//div[@class=\"s-main-slot s-result-list s-search-results sg-row\"]/div");
     private By noresultfound = By.xpath("//div[starts-with(@data-cel-widget,'MAIN-MESSAGING')]//span[contains(text(),'No results for')]");
     private By searchSuggestion = By.xpath("//div[@class=\"s-suggestion-container\"]/div[@role=\"button\"]");
+    private By page2btn = By.xpath("//a[normalize-space()='2']");
+
+
     //Methods
 
     // method to return search results as list
@@ -59,6 +62,18 @@ public class SearchResults {
         List <WebElement> suggestions = getSearchSuggestions();
         return suggestions.get(0).getText().contains(string);
      }
+
+
+    public void goToSecondPageOFResults(){
+
+        wait.until(ExpectedConditions.elementToBeClickable(page2btn));
+        driver .findElement(page2btn).click();
+    }
+
+    public boolean isPage2(){
+       return driver.getCurrentUrl().contains("page=2");
+
+    }
 
 
 }

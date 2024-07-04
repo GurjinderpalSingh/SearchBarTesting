@@ -75,4 +75,14 @@ public class searchBarstepdef {
        Assert.assertTrue(searchresults.checkSuggestionDisplayed(string));
 
     }
+
+    @When("User navigate to second page of results")
+    public void userNavigateToSecondPageOfResults() {
+        searchresults.goToSecondPageOFResults();
+    }
+
+    @Then("user should see second page of results")
+    public void userShouldSeeSecondPageOfResults() {
+        Assert.assertTrue(searchresults.isPage2());
+    }
 }
