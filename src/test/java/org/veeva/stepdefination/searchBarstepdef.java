@@ -50,7 +50,7 @@ public class searchBarstepdef {
 
     @Then("user should redirected to home page")
     public void userShouldRedirectedToHomePage() {
-        Assert.assertEquals(homepage.checkPageUrl(),"https://www.amazon.ca");
+        Assert.assertEquals(homepage.checkPageUrl(),"https://www.amazon.ca/");
     }
 
     @Given("User search with invalid input {string} in search bar")

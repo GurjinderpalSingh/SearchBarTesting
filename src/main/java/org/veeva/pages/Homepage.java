@@ -29,7 +29,7 @@ public class Homepage {
 
     //method to add text to search box
     public void addSearchtext(String text){
-        wait.until(ExpectedConditions.elementToBeSelected(searchBar));
+        wait.until(ExpectedConditions.presenceOfElementLocated(searchBar));
         driver.findElement(searchBar).sendKeys(text);
     }
 
