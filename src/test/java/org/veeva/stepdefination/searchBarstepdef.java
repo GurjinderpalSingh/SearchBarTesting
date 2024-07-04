@@ -4,8 +4,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.veeva.pages.Homepage;
 import org.veeva.pages.SearchResults;
+
+import javax.accessibility.AccessibleAttributeSequence;
 
 
 public class searchBarstepdef {
@@ -36,4 +39,29 @@ public class searchBarstepdef {
         searchresults.resultsContainsSearchText(string);
     }
 
+    @Given("user does not put any term in search Bar")
+    public void userDoesNotPutAnyTermInSearchBar() {
+        homepage.addSearchtext("");
+    }
+
+    @Then("user should redirected to home page")
+    public void userShouldRedirectedToHomePage() {
+        Assert.assertEquals(homepage.checkPageUrl(),"https://www.amazon.ca");
+    }
+
+    @Given("User search with invalid input {string} in search bar")
+    public void userSearchWithInvalidInputInSearchBar(String string) {
+        homepage.addSearchtext(string);
+        homepage.clickSearchBtn();
+    }
+
+    @Then("User should be showed no results found message")
+    public void userShouldBeShowedNoResultsFoundMessage() {
+        Assert.assertTrue(searchresults.noResultFound().isDisplayed());
+    }
+
+    @When("user typing search item {string} in search bar")
+    public void userTypingSearchItemInSearchBar(String string) {
+        homepage.addSearchtext(string);
+    }
 }

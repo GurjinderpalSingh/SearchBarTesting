@@ -14,11 +14,9 @@ public class SearchResults {
         this.driver = driver;
     }
 
-
-
     // By Locators
     private By searchresults = By.xpath("//div[@class=\"s-main-slot s-result-list s-search-results sg-row\"]/div");
-
+    private By noresultfound = By.xpath("//div[@data-cel-widget='MAIN-MESSAGING-1']//span[contains(text(),'No results for')]");
 
     //Methods
 
@@ -37,6 +35,11 @@ public class SearchResults {
             }
         }
         return true;
+    }
+
+    //method to heck no results found
+    public WebElement noResultFound(){
+        return driver.findElement(noresultfound);
     }
 
 }

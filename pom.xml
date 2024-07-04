@@ -40,7 +40,6 @@
       <version>4.22.0</version>
     </dependency>
   </dependencies>
-
   <build>
     <plugins>
       <plugin>
