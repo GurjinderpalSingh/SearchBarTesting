@@ -1,4 +1,39 @@
 package org.veeva.stepdefination;
 
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.openqa.selenium.WebDriver;
+import org.veeva.pages.Homepage;
+import org.veeva.pages.SearchResults;
+
+
 public class searchBarstepdef {
+    WebDriver driver = Hooks.driver;
+    Homepage homepage;
+    SearchResults searchresults;
+
+    @Given("User is on Amazon homepage")
+    public void userIsOnAmazonHomepage() {
+        driver.get("https://www.amazon.ca");
+        homepage = new Homepage(driver);
+        searchresults = new SearchResults(driver);
+    }
+
+    @Given("user search for {string}")
+    public  void user_search_for(String string){
+        homepage.addSearchtext(string);
+    }
+
+    @When("user click search button")
+    public void userClickSearchButton() {
+        homepage.clickSearchBtn();
+    }
+
+    @Then("user should see search results for {string}")
+    public void user_should_see_results_for(String string){
+        searchresults.getSearchResults();
+        searchresults.resultsContainsSearchText(string);
+    }
+
 }
