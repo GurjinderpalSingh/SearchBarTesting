@@ -4,12 +4,17 @@ on:
   push:
     branches:
       - main  # Set a branch name to trigger the workflow
+  
+  workflow_dispatch:
+    branches:
+      - main  # Set a branch name to trigger the workflow
+
 
 jobs:
   test:
-    name: Run the echo test
-    runs-on: macos-latest
-    steps:
+    - name: Run the echo test
+      runs-on: macos-latest
+      steps:
       - name: run single command to echo
         run: echo "Running the test"
         
