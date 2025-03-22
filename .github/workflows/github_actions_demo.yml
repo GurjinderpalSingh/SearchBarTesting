@@ -1,0 +1,11 @@
+name: github actions to run the test on push to master
+on:
+  push:
+    branches:
+      - main  # Set a branch name to trigger the workflow
+
+jobs:
+  test:
+    runs_on: macos-latest
+    steps:
+      echo "Running the test"
