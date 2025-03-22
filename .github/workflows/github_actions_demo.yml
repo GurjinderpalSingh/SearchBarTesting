@@ -8,4 +8,4 @@ jobs:
   test:
     runs_on: macos-latest
     steps:
-      echo "Running the test"
+      - run: echo "Running the test"
