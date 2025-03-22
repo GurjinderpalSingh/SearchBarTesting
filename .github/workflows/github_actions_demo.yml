@@ -12,3 +12,12 @@ jobs:
     steps:
       - name: run single command to echo
         run: echo "Running the test"
+        
+      - name: Checkout the repo code 
+        uses: actions/checkout@v4.2.2
+        with:
+          # Repository name with owner. For example, actions/checkout
+          repository: ${{ github.repository } # optional, default is ${{ github.repository }
+          
+      - name: list the files in the directory of github workspace
+        run: ls -l
