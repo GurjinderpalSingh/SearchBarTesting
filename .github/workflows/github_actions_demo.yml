@@ -1,4 +1,5 @@
 name: github actions to run the test on push to master
+run-name: 
 on:
   push:
     branches:
@@ -6,6 +7,8 @@ on:
 
 jobs:
   test:
+    name: Run the echo test
     runs-on: macos-latest
     steps:
-      - run: echo "Running the test"
+      name: run single command to echo
+      run: echo "Running the test"
