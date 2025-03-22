@@ -6,6 +6,6 @@ on:
 
 jobs:
   test:
-    runs_on: macos-latest
+    runs-on: macos-latest
     steps:
       - run: echo "Running the test"
