@@ -12,7 +12,7 @@ on:
 
 jobs:
   test:
-    - name: Run the echo test
+      name: Run the echo test
       runs-on: macos-latest
       steps:
       - name: run single command to echo
