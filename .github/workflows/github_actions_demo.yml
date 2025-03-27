@@ -7,7 +7,7 @@ on:
   
   workflow_call:
     secrets:
-      GITHUB_TOKEN:
+      PAT_TOKEN:
         required: true
 
 
@@ -16,7 +16,7 @@ jobs:
       name: Run the echo test
       runs-on: macos-latest
       env:
-        MY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        MY_TOKEN: ${{ secrets.PAT_TOKEN }}
       steps:
       - name: run single command to echo
         run: echo "Running the test with token as $MY_TOKEN"
