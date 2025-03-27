@@ -6,8 +6,6 @@ on:
       - main  # Set a branch name to trigger the workflow
   
   workflow_call:
-    branches:
-      - main  # Set a branch name to trigger the workflow
 
 
 jobs:
